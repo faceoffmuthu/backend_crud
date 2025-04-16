@@ -2,6 +2,7 @@ import express from "express"
 import moviesRoutes from "./routes/movies.route.js "
 import connectDB from "./lib/db.js";
 
+
 // connect DB should import the connectDB
 connectDB()
 

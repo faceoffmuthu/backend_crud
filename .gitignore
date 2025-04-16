@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 .qodo
 node_modules
+
+# Hide sensitive information
+.env
