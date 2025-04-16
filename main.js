@@ -10,6 +10,11 @@ const app = express()
 
 const PORT = 6969;
 
+// Data understanding middleware
+app.use(express.json())
+// urlencoded method
+app.use(express.urlencoded({extended:true}))
+
 // in get function that returns req , res
 app.get('/', (req, res) => {
     res.json({ msg: "Na tha da Leo Das" })
