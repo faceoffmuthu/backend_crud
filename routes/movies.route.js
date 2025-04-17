@@ -16,6 +16,9 @@ router.get("/:id",MovieDetail)
 // C- For creating movies
 router.post('/',MovieCreate )
 
+// ManyMovies for
+// router.post('/',manyMovies)
+
 // U- For Updating movie
 router.put('/:id',MovieUpadte )
 

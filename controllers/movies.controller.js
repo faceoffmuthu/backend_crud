@@ -5,7 +5,7 @@ export const MovieIndex = async (req, res) => {
         const movies = await Movie.find()
         res.json(movies)
     } catch (error) {
-        res.status(500).json({ massage: error.massage })
+        res.status(500).json({ message: error.message })
 
     }
 }
@@ -33,6 +33,20 @@ export const MovieCreate = async (req, res) => {
 
 }
 
+// // Add many movies
+// export const manyMovies = async(req,res)=>{
+//     const newMovies = new Movie({
+//         title: req.body.title,
+//         desc: req.body.desc
+//     })
+//     try {
+//         const movies = await Movie.insertMany(req.body);
+//         res.status(201).json(movies);
+//     } catch (error) {
+//         res.status(400).json({ message: error.message }); 
+//     }
+// }
+
 // single movie details
 export const MovieDetail = async (req, res) => {
     try {
@@ -45,7 +59,7 @@ export const MovieDetail = async (req, res) => {
             res.json(movie)
         }
     } catch (error) {
-        res.status(500).json({ massage: error.massage })
+        res.status(500).json({ message: error.message })
 
     }
 }
@@ -64,10 +78,9 @@ export const MovieUpadte = async (req, res) => {
             }
         );
         res.status(200).json(updatedMovie)
-            ()
-    } catch (error) {
-        res.status(400).json({ message: error.massage })
 
+    } catch (error) {
+        res.status(400).json({ message: error.message })
 
     }
     // validate the user input
@@ -90,8 +103,15 @@ export const MovieUpadte = async (req, res) => {
 
 
 }
+export const MovieDelete = async (req, res) => {
+    const movieId = req.params.id;
+    try {
+        await Movie.deleteOne({ _id: movieId })
+        res.json({ message: "Movie Deleted" })
+    } catch (error) {
+        res.status(500).json({ message: error.message })
 
-export const MovieDelete = (req, res) => {
-    res.send('Delete movies')
+    }
+
 
 }
