@@ -1,10 +1,17 @@
 import { model, Schema } from "mongoose";
 
 // Write the Schema
-
+// Requirement of the title other wise it will not update in database
 const schema = new Schema({
-    title:String,
-    desc:String
+    title:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    desc:{
+        type:String,
+        required:true,
+    }
 })
 
 // Create your model
